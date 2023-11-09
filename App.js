@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
-import Cadastro from './src/telas/Cadastro';
+
+import Menu from './src/menu';
 
 export default function App() {
   const theme = {
@@ -11,7 +12,7 @@ export default function App() {
   
   return (
     <PaperProvider theme={theme}>
-      <Cadastro />
+      <Menu />
     </PaperProvider>
   );
 }
