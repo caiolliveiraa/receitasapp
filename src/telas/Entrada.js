@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { View, Text, Image, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
 import { Button, TextInput, withTheme } from 'react-native-paper';
 import receitasapp from '../imgs/receitasapp.png';
+import { useUsuario } from "../contexts/useContext";
 
 function Entrada({ navigation }) {
   const apiUrl = process.env.EXPO_PUBLIC_API_URL;
   
+  const { nomeDoUsuario, setNomeDoUsuario } = useUsuario();
   const [usuario, setUsuario] = useState('');
   const [textSenha, setTextSenha] = useState('');
   const [autenticado, setAutenticado] = useState(false);
@@ -13,6 +15,11 @@ function Entrada({ navigation }) {
   const irPraCadastro = () => {
     navigation.navigate('Cadastro');
   };
+
+  const irParaInicio = () => {
+    navigation.navigate('Inicio');
+  };
+
 
   const handleEntrar = () => {
     fetch(`${apiUrl}/usuarios`, {
@@ -24,7 +31,8 @@ function Entrada({ navigation }) {
 
         if (contaEncontrada) {
           setAutenticado(true);
-          console.log('Encontrada!!!')
+          setNomeDoUsuario(usuario);
+          irParaInicio();
         } else {
           alert('Credenciais inválidas. Tente novamente.');
         }

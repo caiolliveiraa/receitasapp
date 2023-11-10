@@ -5,16 +5,28 @@ import { PaperProvider } from 'react-native-paper';
 
 
 import Menu from './src/menu';
+import { UsuarioProvider } from './src/contexts/useContext';
+import {
+  SafeAreaView,
+  SafeAreaProvider,
+  SafeAreaInsetsContext,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
 export default function App() {
   const theme = {
-       myOwnColor: '#BADA55',
-       branco: '#FFFFFF'
+    myOwnColor: '#BADA55',
+    branco: '#FFFFFF'
   };
-  
+
   return (
-    <PaperProvider theme={theme}>
-      <Menu />
-    </PaperProvider>
+    <UsuarioProvider>
+      <PaperProvider theme={theme}>
+        <SafeAreaProvider>
+          <Menu />
+        </SafeAreaProvider>
+      </PaperProvider>
+    </UsuarioProvider>
+
   );
 }
