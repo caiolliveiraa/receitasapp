@@ -17,7 +17,7 @@ function Entrada({ navigation }) {
   };
 
   const irParaInicio = () => {
-    navigation.navigate('Inicio');
+    navigation.navigate('MyTabs');
   };
 
 
