@@ -79,8 +79,9 @@ function Inicio() {
 
   return (
     <View style={{ backgroundColor: '#47A5C2', alignItems: 'center', justifyContent: 'center', height: '100%', padding: 20, marginTop: 15 }}>
-      <Text>Oi, {nomeDoUsuario}</Text>
-      <Text>Lista de Receitas:</Text>
+      <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>Oi, <Text style={{color: 'white', fontSize: 24, fontWeight: 'normal', fontStyle: 'italic'}}>{nomeDoUsuario}</Text></Text>
+     
+      <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>Meu Livro de Receitas:</Text>
       <FlatList
         data={receitas}
         keyExtractor={(item) => item.id.toString()}
