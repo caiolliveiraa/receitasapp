@@ -60,7 +60,7 @@ function Inicio() {
       .then((response) => response.json())
       .then((data) => setReceitas(data))
       .catch((error) => console.error("Erro ao buscar receitas:", error));
-  }, []);
+  }, [receitas]); 
 
   const toggleModal = (recipe) => {
     if (recipe) {
